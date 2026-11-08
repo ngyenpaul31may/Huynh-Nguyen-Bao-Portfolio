@@ -14,10 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css?v=20260929-v20" />
+    <link rel="stylesheet" href="css/widgets.css" />
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true">
@@ -27,49 +28,42 @@
     <div class="bg-blob bg-blob--1" aria-hidden="true"></div>
     <div class="bg-blob bg-blob--2" aria-hidden="true"></div>
 
-    <header class="site-header glass">
-      <a class="logo" href="#landing" aria-label="Portfolio — về đầu trang">
-        <span class="logo__text" data-i18n="header.logo">My Portfolio</span>
-      </a>
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        aria-label="Mở menu"
-        data-i18n-aria="header.menuAria"
-      >
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="site-nav" class="site-nav">
-        <a href="#about" data-i18n="nav.about">Giới thiệu</a>
-        <a href="#experience" data-i18n="nav.experience">Kinh nghiệm</a>
-        <a href="#projects" data-i18n="nav.projects">Dự án</a>
-        <a href="#contact" data-i18n="nav.contact">Liên hệ</a>
-        <div
-          class="lang-switch"
-          role="group"
-          aria-label="Ngôn ngữ"
-          data-i18n-aria="header.langGroupAria"
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="logo" href="#landing" aria-label="Portfolio — về đầu trang">
+          <span class="logo__text" data-i18n="header.logo">Portfolio</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Mở menu"
+          data-i18n-aria="header.menuAria"
         >
-          <button
-            class="lang-switch__btn"
-            type="button"
-            data-lang-set="vi"
-            aria-pressed="true"
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="#about" data-i18n="nav.about">Giới thiệu</a>
+          <a href="#experience" data-i18n="nav.experience">Kinh nghiệm</a>
+          <a href="#projects" data-i18n="nav.projects">Dự án</a>
+          <a href="#contact" data-i18n="nav.contact">Liên hệ</a>
+          <label
+            class="switch"
+            aria-label="Chuyển ngôn ngữ"
+            data-tooltip="Chuyển ngôn ngữ"
+            data-i18n-aria="header.langTooltip"
+            data-i18n-tooltip="header.langTooltip"
           >
-            VI
-          </button>
-          <button
-            class="lang-switch__btn"
-            type="button"
-            data-lang-set="en"
-            aria-pressed="false"
-          >
-            EN
-          </button>
-        </div>
-      </nav>
+            <input
+              type="checkbox"
+              data-lang-toggle
+              aria-label="Chuyển ngôn ngữ"
+            />
+            <span class="slider"></span>
+          </label>
+        </nav>
+      </div>
     </header>
 
     <main>
@@ -79,546 +73,1017 @@
         aria-label="Trang chào mừng"
         data-i18n-aria="landing.aria"
       >
-        <div class="landing__orb landing__orb--1" aria-hidden="true"></div>
-        <div class="landing__orb landing__orb--2" aria-hidden="true"></div>
+        <div class="landing__shell">
+          <div class="landing__copy">
+            <div class="landing__intro">
+              <p class="landing__hello" data-i18n="landing.eyebrow">
+                Xin chào, tôi là
+              </p>
+              <div
+                class="landing__mascot"
+                data-page-mascot
+                data-directions="assets/mascots/bao-directions.webp"
+                data-reactions="assets/mascots/bao-reactions.webp"
+                data-size="140"
+                data-label="Bao"
+              ></div>
+            </div>
 
-        <div class="landing__wrap">
-          <div class="landing__shell">
-            <div class="landing__copy">
-              <div class="landing__badge glass">
-                <span class="landing__badge-dot" aria-hidden="true"></span>
-                <span class="landing__badge-text" data-i18n="landing.badge"
-                  >Backend / Full-stack · Cần Thơ</span
+            <h1 class="landing__name" data-i18n="landing.name">
+              HUỲNH NGUYÊN BẢO
+            </h1>
+
+            <p class="landing__role" data-i18n="landing.role">
+              BACKEND / FULL-STACK DEVELOPER
+            </p>
+
+            <div class="landing__actions">
+              <a
+                class="github-btn"
+                href="https://github.com/huynhnguyenbao3105"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  height="26"
+                  width="26"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
+                  <path
+                    d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
+                  ></path>
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <a
+                class="zalo-btn"
+                href="https://zalo.me/0939082419"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zalo"
+              >
+                <span class="zalo-btn__icon" aria-hidden="true">
+                  <img
+                    class="zalo-btn__icon-light"
+                    src="assets/zalo-icon-light.png"
+                    alt=""
+                    width="26"
+                    height="26"
+                    decoding="async"
+                  />
+                  <img
+                    class="zalo-btn__icon-dark"
+                    src="assets/zalo-icon-dark.png"
+                    alt=""
+                    width="26"
+                    height="26"
+                    decoding="async"
+                  />
+                </span>
+                <span class="zalo-btn__label">Zalo</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="landing__visual">
+            <svg class="landing__outline" aria-hidden="true" focusable="false">
+              <filter
+                id="avatar-outline"
+                x="-15%"
+                y="-10%"
+                width="130%"
+                height="120%"
+                color-interpolation-filters="sRGB"
+              >
+                <feMorphology
+                  in="SourceAlpha"
+                  operator="dilate"
+                  radius="6"
+                  result="dilated"
+                />
+                <feFlood flood-color="#ffffff" result="flood" />
+                <feComposite
+                  in="flood"
+                  in2="dilated"
+                  operator="in"
+                  result="outline"
+                />
+                <feMerge>
+                  <feMergeNode in="outline" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </svg>
+            <div class="landing__glow" aria-hidden="true"></div>
+            <img
+              class="landing__avatar"
+              src="assets/profile.png?v=custom-retouch"
+              alt="Ảnh chân dung Huỳnh Nguyên Bảo"
+              data-i18n-alt="landing.avatarAlt"
+              width="720"
+              height="900"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <!-- Tech Slider: Retro 3D Showcase (Inspired by Vintage Microcars) -->
+        <div class="tech-slider tech-slider--dotnet reveal" id="techSlider" data-active-index="0">
+          <!-- Top Bar -->
+          <div class="tech-slider__topbar">
+            <p class="tech-slider__eyebrow" data-i18n="techSlider.eyebrow">Nền tảng kỹ thuật và kiến trúc</p>
+          </div>
+
+          <!-- 3D Carousel Stage -->
+          <div class="tech-slider__stage" id="techSliderStage" aria-roledescription="carousel" aria-label="Core Technologies Carousel">
+            <!-- Giant Display Background Text -->
+            <div class="tech-slider__bg-text" id="techSliderBgText" aria-hidden="true">.NET</div>
+
+            <!-- Tech Logos Track / Slides -->
+            <div class="tech-slider__track" id="techSliderTrack">
+              <!-- Slide 0: .NET -->
+              <div class="tech-slide tech-slide--active" data-index="0" role="group" aria-label="1 / 8: .NET">
+                <div class="tech-slide__car-wrap">
+                  <img src="assets/tech-logos/dotnet_3d.png" alt=".NET &amp; ASP.NET Core" class="tech-slide__car-img" loading="eager" draggable="false" />
+                  <div class="tech-slide__shadow" aria-hidden="true"></div>
+                </div>
               </div>
 
-              <h1 class="landing__title">
-                <span class="landing__title-eyebrow" data-i18n="landing.eyebrow"
-                  >Xin chào, tôi là</span
-                >
-                <span class="landing__title-name" data-i18n="landing.name"
-                  >Huỳnh Nguyên Bảo</span
-                >
-              </h1>
+              <!-- Slide 1: Java -->
+              <div class="tech-slide tech-slide--next" data-index="1" role="group" aria-label="2 / 8: Java">
+                <div class="tech-slide__car-wrap">
+                  <img src="assets/tech-logos/java_3d.png" alt="Spring Boot &amp; Java" class="tech-slide__car-img" loading="lazy" draggable="false" />
+                  <div class="tech-slide__shadow" aria-hidden="true"></div>
+                </div>
+              </div>
 
-              <p class="landing__lead" data-i18n-html="landing.lead">
-                Học <strong>Kỹ thuật phần mềm</strong> tại
-                <strong>FPT University</strong> (<strong>2021–2025</strong>).
-                Tập trung <strong>backend / full-stack</strong> với
-                <strong>ASP.NET Core</strong>, <strong>Spring Boot</strong> và
-                kiến trúc nhiều lớp.
+              <!-- Slide 2: Docker -->
+              <div class="tech-slide tech-slide--hidden" data-index="2" role="group" aria-label="3 / 8: Docker">
+                <div class="tech-slide__car-wrap">
+                  <img src="assets/tech-logos/docker_3d.png" alt="Docker &amp; DevOps" class="tech-slide__car-img" loading="lazy" draggable="false" />
+                  <div class="tech-slide__shadow" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- Slide 3: PHP -->
+              <div class="tech-slide tech-slide--hidden" data-index="3" role="group" aria-label="4 / 8: PHP">
+                <div class="tech-slide__car-wrap">
+                  <img src="assets/tech-logos/php_3d.png" alt="PHP &amp; Laravel" class="tech-slide__car-img" loading="lazy" draggable="false" />
+                  <div class="tech-slide__shadow" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- Slide 4: NestJS -->
+              <div class="tech-slide tech-slide--hidden" data-index="4" role="group" aria-label="5 / 8: NestJS">
+                <div class="tech-slide__car-wrap">
+                  <img src="assets/tech-logos/nest_3d.png" alt="NestJS &amp; TypeScript" class="tech-slide__car-img" loading="lazy" draggable="false" />
+                  <div class="tech-slide__shadow" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- Slide 5: Figma -->
+              <div class="tech-slide tech-slide--hidden" data-index="5" role="group" aria-label="6 / 8: Figma">
+                <div class="tech-slide__car-wrap">
+                  <img src="assets/tech-logos/figma_3d.png" alt="Figma UI/UX" class="tech-slide__car-img" loading="lazy" draggable="false" />
+                  <div class="tech-slide__shadow" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- Slide 6: GitHub -->
+              <div class="tech-slide tech-slide--hidden" data-index="6" role="group" aria-label="7 / 8: GitHub">
+                <div class="tech-slide__car-wrap">
+                  <img src="assets/tech-logos/github_3d.png" alt="GitHub &amp; CI/CD" class="tech-slide__car-img" loading="lazy" draggable="false" />
+                  <div class="tech-slide__shadow" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- Slide 7: GitLab -->
+              <div class="tech-slide tech-slide--prev" data-index="7" role="group" aria-label="8 / 8: GitLab">
+                <div class="tech-slide__car-wrap">
+                  <img src="assets/tech-logos/gitlab_3d.png" alt="GitLab &amp; DevOps" class="tech-slide__car-img" loading="lazy" draggable="false" />
+                  <div class="tech-slide__shadow" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Track & Indicator -->
+          <div class="tech-slider__timeline" aria-hidden="true">
+            <span class="tech-slider__timeline-label">01</span>
+            <div class="tech-slider__timeline-track" id="techSliderTimelineTrack">
+              <div class="tech-slider__timeline-line"></div>
+              <button type="button" class="tech-slider__timeline-dot tech-slider__timeline-dot--active" data-slide="0" aria-label="Slide 1: .NET"></button>
+              <button type="button" class="tech-slider__timeline-dot" data-slide="1" aria-label="Slide 2: Java"></button>
+              <button type="button" class="tech-slider__timeline-dot" data-slide="2" aria-label="Slide 3: Docker"></button>
+              <button type="button" class="tech-slider__timeline-dot" data-slide="3" aria-label="Slide 4: PHP"></button>
+              <button type="button" class="tech-slider__timeline-dot" data-slide="4" aria-label="Slide 5: NestJS"></button>
+              <button type="button" class="tech-slider__timeline-dot" data-slide="5" aria-label="Slide 6: Figma"></button>
+              <button type="button" class="tech-slider__timeline-dot" data-slide="6" aria-label="Slide 7: GitHub"></button>
+              <button type="button" class="tech-slider__timeline-dot" data-slide="7" aria-label="Slide 8: GitLab"></button>
+            </div>
+            <span class="tech-slider__timeline-label">08</span>
+          </div>
+
+          <!-- Bottom Tech Details Card -->
+          <div class="tech-slider__info">
+            <!-- Info Slide 0: .NET -->
+            <div class="tech-info-card tech-info-card--active" data-info-index="0">
+              <h3 class="tech-info-card__title" data-i18n="techSlider.dotnetTitle">.NET &amp; ASP.NET Core</h3>
+              <p class="tech-info-card__desc" data-i18n="techSlider.dotnetDesc">
+                Xây dựng RESTful API hiệu năng cao với ASP.NET Core và Clean Architecture, bảo mật JWT, tối ưu EF Core và tích hợp cổng thanh toán trực tuyến.
               </p>
+              <div class="tech-info-card__tags">
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">ASP.NET Core 8</span>
+                <span class="tech-tag">Clean Architecture</span>
+                <span class="tech-tag">EF Core</span>
+                <span class="tech-tag">JWT Security</span>
+                <span class="tech-tag">SQL Server</span>
+              </div>
+            </div>
 
-              <ul
-                class="landing__stack"
-                aria-label="Công nghệ chính"
-                data-i18n-aria="landing.stackAria"
-              >
-                <li data-i18n="landing.stack1">+3 Project</li>
-                <li>ASP.NET Core</li>
-                <li>Spring Boot</li>
-              </ul>
+            <!-- Info Slide 1: Java -->
+            <div class="tech-info-card" data-info-index="1">
+              <h3 class="tech-info-card__title" data-i18n="techSlider.javaTitle">Spring Boot &amp; Java</h3>
+              <p class="tech-info-card__desc" data-i18n="techSlider.javaDesc">
+                Phát triển dịch vụ backend doanh nghiệp với Spring Boot, bảo mật qua Spring Security, tối ưu truy vấn Hibernate/JPA và quản trị giao dịch an toàn.
+              </p>
+              <div class="tech-info-card__tags">
+                <span class="tech-tag">Java 17/21</span>
+                <span class="tech-tag">Spring Boot 3</span>
+                <span class="tech-tag">Spring Security</span>
+                <span class="tech-tag">Hibernate / JPA</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">RESTful API</span>
+              </div>
+            </div>
 
-              <div class="landing__actions">
-                <a class="btn btn--primary landing__cta" href="#about">
-                  <span data-i18n="landing.ctaExplore">Khám phá portfolio</span>
-                  <svg
-                    class="landing__cta-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
+            <!-- Info Slide 2: Docker -->
+            <div class="tech-info-card" data-info-index="2">
+              <h3 class="tech-info-card__title" data-i18n="techSlider.dockerTitle">Docker &amp; DevOps</h3>
+              <p class="tech-info-card__desc" data-i18n="techSlider.dockerDesc">
+                Đóng gói ứng dụng với Docker, đồng nhất môi trường phát triển qua Docker Compose, tự động hóa quy trình CI/CD và tối ưu hóa triển khai dịch vụ.
+              </p>
+              <div class="tech-info-card__tags">
+                <span class="tech-tag">Docker Engine</span>
+                <span class="tech-tag">Docker Compose</span>
+                <span class="tech-tag">GitHub Actions CI/CD</span>
+                <span class="tech-tag">Containerization</span>
+                <span class="tech-tag">Nginx</span>
+                <span class="tech-tag">Linux</span>
+              </div>
+            </div>
+
+            <!-- Info Slide 3: PHP -->
+            <div class="tech-info-card" data-info-index="3">
+              <h3 class="tech-info-card__title" data-i18n="techSlider.phpTitle">PHP &amp; Laravel Framework</h3>
+              <p class="tech-info-card__desc" data-i18n="techSlider.phpDesc">
+                Xây dựng ứng dụng web chuẩn kiến trúc MVC với Laravel, tối ưu quan hệ Eloquent ORM, thiết kế RESTful API linh hoạt và quản trị MySQL hiệu quả.
+              </p>
+              <div class="tech-info-card__tags">
+                <span class="tech-tag">PHP 8.x</span>
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">MVC Architecture</span>
+                <span class="tech-tag">RESTful API</span>
+                <span class="tech-tag">Composer</span>
+              </div>
+            </div>
+
+            <!-- Info Slide 4: NestJS -->
+            <div class="tech-info-card" data-info-index="4">
+              <h3 class="tech-info-card__title" data-i18n="techSlider.nestTitle">NestJS &amp; TypeScript</h3>
+              <p class="tech-info-card__desc" data-i18n="techSlider.nestDesc">
+                Phát triển backend module hóa chuẩn doanh nghiệp với NestJS &amp; TypeScript, tận dụng Dependency Injection và sẵn sàng mở rộng kiến trúc vi dịch vụ.
+              </p>
+              <div class="tech-info-card__tags">
+                <span class="tech-tag">NestJS</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">TypeORM</span>
+                <span class="tech-tag">Swagger API</span>
+                <span class="tech-tag">Microservices</span>
+              </div>
+            </div>
+
+            <!-- Info Slide 5: Figma -->
+            <div class="tech-info-card" data-info-index="5">
+              <h3 class="tech-info-card__title" data-i18n="techSlider.figmaTitle">Figma UI/UX Design</h3>
+              <p class="tech-info-card__desc" data-i18n="techSlider.figmaDesc">
+                Thiết kế giao diện người dùng hiện đại, xây dựng Design System chuẩn mực, wireframe và prototype tương tác cao giúp tối ưu hóa trải nghiệm sản phẩm.
+              </p>
+              <div class="tech-info-card__tags">
+                <span class="tech-tag">Figma</span>
+                <span class="tech-tag">UI/UX Design</span>
+                <span class="tech-tag">Design System</span>
+                <span class="tech-tag">Wireframing</span>
+                <span class="tech-tag">Interactive Prototyping</span>
+                <span class="tech-tag">Responsive Layout</span>
+              </div>
+            </div>
+
+            <!-- Info Slide 6: GitHub -->
+            <div class="tech-info-card" data-info-index="6">
+              <h3 class="tech-info-card__title" data-i18n="techSlider.githubTitle">GitHub &amp; CI/CD Pipelines</h3>
+              <p class="tech-info-card__desc" data-i18n="techSlider.githubDesc">
+                Quản lý mã nguồn tập trung với Gitflow, tối ưu quy trình Code Review và tự động hóa kiểm thử, phát hành liên tục qua GitHub Actions CI/CD.
+              </p>
+              <div class="tech-info-card__tags">
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">GitHub Actions</span>
+                <span class="tech-tag">Gitflow</span>
+                <span class="tech-tag">Pull Request Workflow</span>
+                <span class="tech-tag">Version Control</span>
+                <span class="tech-tag">Code Review</span>
+              </div>
+            </div>
+
+            <!-- Info Slide 7: GitLab -->
+            <div class="tech-info-card" data-info-index="7">
+              <h3 class="tech-info-card__title" data-i18n="techSlider.gitlabTitle">GitLab &amp; DevOps Automation</h3>
+              <p class="tech-info-card__desc" data-i18n="techSlider.gitlabDesc">
+                Quản trị toàn diện vòng đời DevOps trên GitLab, thiết lập pipeline tự động qua .gitlab-ci.yml, phân quyền repository và giám sát triển khai liên tục.
+              </p>
+              <div class="tech-info-card__tags">
+                <span class="tech-tag">GitLab CI/CD</span>
+                <span class="tech-tag">.gitlab-ci.yml</span>
+                <span class="tech-tag">Pipeline Optimization</span>
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">Agile Management</span>
+                <span class="tech-tag">Webhooks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="experience" class="section who-section">
+        <div class="who-header">
+          <h2 class="who-eyebrow" data-i18n="who.eyebrow">Về bản thân tôi</h2>
+        </div>
+
+        <div class="who-grid">
+          <!-- Left Column: Photo Card & Footer -->
+          <div class="who-col-left">
+            <div class="who-photo-card">
+              <div class="who-photo-card__glow" aria-hidden="true"></div>
+              <img
+                src="assets/profile-suit.png"
+                alt="Huỳnh Nguyên Bảo"
+                width="640"
+                height="800"
+                loading="lazy"
+              />
+            </div>
+            <div class="who-photo-footer">
+              <div class="who-socials">
+                <a
+                  class="who-social-btn"
+                  href="https://gitlab.com/myproject31052003"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitLab"
+                  title="GitLab"
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M22.65 14.39L20 6.22a.96.96 0 0 0-.36-.48.98.98 0 0 0-.57-.14.99.99 0 0 0-.55.22.97.97 0 0 0-.31.52L16.4 12H7.6l-1.81-5.66a.97.97 0 0 0-.31-.52.99.99 0 0 0-.55-.22.98.98 0 0 0-.57.14.96.96 0 0 0-.36.48L1.35 14.39a.84.84 0 0 0 .29.93l10.36 7.54 10.36-7.54a.84.84 0 0 0 .29-.93z"/>
+                  </svg>
+                </a>
+                <a
+                  class="who-social-btn"
+                  href="https://github.com/huynhnguyenbao3105"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  title="GitHub"
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                     <path
-                      d="M5 12h14M13 6l6 6-6 6"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
                     />
                   </svg>
                 </a>
                 <a
-                  class="btn btn--ghost"
-                  href="#contact"
-                  data-i18n="landing.ctaContact"
-                  >Liên hệ</a
+                  class="who-social-btn"
+                  href="mailto:huynhnguyenbao3105@gmail.com"
+                  aria-label="Email"
+                  title="huynhnguyenbao3105@gmail.com"
                 >
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                </a>
+              </div>
+              <div class="who-author">
+                <strong class="who-author__name">Huỳnh Nguyên Bảo</strong>
+                <span class="who-author__role" data-i18n="who.authorRole">Backend Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Bio & Experience List -->
+          <div class="who-col-right">
+            <p class="who-bio" data-i18n-html="who.bio">
+              Kỹ sư Backend / Full-stack với niềm đam mê xây dựng các hệ thống web có khả năng mở rộng cao, bảo mật và trải nghiệm mượt mà. Tốt nghiệp Kỹ thuật Phần mềm tại Đại học FPT Cần Thơ, tôi đã tích lũy kinh nghiệm thực tế qua vai trò Team Lead tại FPT Software và các dự án thương mại điện tử, mạng xã hội quy mô lớn.
+            </p>
+
+            <div class="who-table">
+              <!-- Row 1: AccountMarket (03/2026 → 04/2026) -->
+              <div class="who-row">
+                <div class="who-col who-col--role">
+                  <span data-i18n="who.role1">Full-stack Developer</span>
+                </div>
+                <div class="who-col who-col--org">
+                  <span data-i18n="who.org1">AccountMarket — Sàn giao dịch</span>
+                </div>
+                <div class="who-col who-col--time">
+                  <time data-i18n-html="who.time1">03/2026 &rarr; 04/2026</time>
+                </div>
+              </div>
+
+              <!-- Row 2: FUS (05/2025 → 08/2025) -->
+              <div class="who-row">
+                <div class="who-col who-col--role">
+                  <span data-i18n="who.role2">Backend Team Lead</span>
+                </div>
+                <div class="who-col who-col--org">
+                  <span data-i18n="who.org2">FUS — Mạng xã hội học tập</span>
+                </div>
+                <div class="who-col who-col--time">
+                  <time data-i18n-html="who.time2">05/2025 &rarr; 08/2025</time>
+                </div>
+              </div>
+
+              <!-- Row 3: FPT Software (04/2024 → 08/2024) -->
+              <div class="who-row">
+                <div class="who-col who-col--role">
+                  <span data-i18n="who.role3">Backend Team Lead</span>
+                </div>
+                <div class="who-col who-col--org">
+                  <span data-i18n="who.org3">FPT Software — Dự án G1Mart</span>
+                </div>
+                <div class="who-col who-col--time">
+                  <time data-i18n-html="who.time3">04/2024 &rarr; 08/2024</time>
+                </div>
+              </div>
+
+              <!-- Row 4: Education -->
+              <div class="who-row who-row--edu">
+                <div class="who-col who-col--role">
+                  <span data-i18n="who.role4">Cử nhân Kỹ thuật PM</span>
+                </div>
+                <div class="who-col who-col--org">
+                  <span data-i18n="who.org4">Đại học FPT Cần Thơ</span>
+                </div>
+                <div class="who-col who-col--time">
+                  <time data-i18n-html="who.time4">2021 &rarr; 2025</time>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process Section ("Here's how it works") -->
+      <section id="process" class="section process-section" aria-label="Quy trình làm việc">
+        <div class="process-bg-glow" aria-hidden="true"></div>
+        <div class="process-header">
+          <h2 class="process-eyebrow" data-i18n="process.title">Quy trình làm việc</h2>
+        </div>
+
+        <div class="process-cards-wrap">
+          <!-- Doodle Connector 1: Card 01 -> Card 02 -->
+          <svg class="process-doodle process-doodle--1" viewBox="0 0 160 100" fill="none" aria-hidden="true">
+            <path d="M 12 85 C 25 15, 125 5, 148 30" stroke="#84cc16" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="12" cy="85" r="5" stroke="#84cc16" stroke-width="2.5" fill="#f7fee7"/>
+            <circle cx="148" cy="30" r="5" stroke="#84cc16" stroke-width="2.5" fill="#f7fee7"/>
+          </svg>
+
+          <!-- Doodle Connector 2: Card 02 -> Card 03 -->
+          <svg class="process-doodle process-doodle--2" viewBox="0 0 160 110" fill="none" aria-hidden="true">
+            <path d="M 15 35 C 55 20, 110 15, 75 65 C 45 98, 105 102, 145 72" stroke="#84cc16" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="15" cy="35" r="5" stroke="#84cc16" stroke-width="2.5" fill="#f7fee7"/>
+            <circle cx="145" cy="72" r="5" stroke="#84cc16" stroke-width="2.5" fill="#f7fee7"/>
+          </svg>
+
+          <!-- Card 01: Discover -->
+          <div class="process-card process-card--1">
+            <div class="process-card__number">01</div>
+            <div class="process-card__body">
+              <h3 class="process-card__title" data-i18n="process.step1Title">Discover</h3>
+              <p class="process-card__desc" data-i18n="process.step1Desc">
+                Thấu hiểu mục tiêu, yêu cầu người dùng và thách thức kỹ thuật thông qua nghiên cứu và chiến lược rõ ràng.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 02: Design -->
+          <div class="process-card process-card--2">
+            <div class="process-card__number">02</div>
+            <div class="process-card__body">
+              <h3 class="process-card__title" data-i18n="process.step2Title">Design</h3>
+              <p class="process-card__desc" data-i18n="process.step2Desc">
+                Chuyển hóa giải pháp thành kiến trúc hệ thống trực quan, tinh gọn, bảo mật và trải nghiệm người dùng tối ưu.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 03: Deliver -->
+          <div class="process-card process-card--3">
+            <div class="process-card__number">03</div>
+            <div class="process-card__body">
+              <h3 class="process-card__title" data-i18n="process.step3Title">Deliver</h3>
+              <p class="process-card__desc" data-i18n="process.step3Desc">
+                Kiểm thử toàn diện, tối ưu hóa hiệu năng và triển khai sản phẩm hoàn thiện với độ chính xác cao.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects-section">
+        <header class="projects-header">
+          <h2 class="projects-title" data-i18n="projects.title">/ Best Projects</h2>
+        </header>
+
+        <div class="projects-grid">
+          <!-- Project 1 — G1Mart -->
+          <article class="project-card">
+            <div class="project-card__frame">
+              <div class="project-card__media">
+                <img
+                  src="assets/projects/g1mart.jpg"
+                  alt="G1Mart E-Commerce Platform"
+                  class="project-card__img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__overlay">
                 <a
-                  class="btn btn--ghost"
-                  href="assets/Huynh-Nguyen-Bao-VN.pdf"
-                  download="Huynh-Nguyen-Bao-CV-VI.pdf"
-                  data-cv-download
-                  data-i18n="landing.ctaDownloadCV"
-                  >Tải CV</a
+                  class="project-card__action-btn project-card__action-btn--primary"
+                  href="https://g1mart.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="projects.liveDemo"
                 >
+                  <span>Live demo</span>
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
+                <a
+                  class="project-card__action-btn"
+                  href="https://gitlab.com/myproject31052003/G1Mart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>GitLab</span>
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
               </div>
             </div>
-
-            <div class="landing__stage">
-              <div class="landing__frame glass">
-                <div class="landing__frame-bar">
-                  <span class="landing__frame-dots" aria-hidden="true"></span>
-                  <span
-                    class="landing__frame-label label-caps"
-                    data-i18n="landing.frameLabel"
-                    >Huỳnh Nguyên Bảo</span
-                  >
-                </div>
-                <div class="landing__canvas">
-                  <img
-                    class="landing__avatar"
-                    src="assets/profile.png"
-                    alt="Ảnh chân dung Huỳnh Nguyên Bảo"
-                    data-i18n-alt="landing.avatarAlt"
-                    width="480"
-                    height="480"
-                    loading="eager"
-                  />
-                </div>
+            <div class="project-card__info">
+              <h3 class="project-card__title">G1Mart Dashboard</h3>
+              <div class="project-card__tags">
+                <span class="project-card__pill">E-Commerce</span>
+                <span class="project-card__pill">Spring Boot 3</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <a
-          class="landing__scroll glass"
-          href="#about"
-          aria-label="Cuộn xuống giới thiệu"
-          data-i18n-aria="landing.scrollAria"
-        >
-          <span class="landing__scroll-label" data-i18n="landing.scrollLabel"
-            >Giới thiệu</span
-          >
-          <span class="landing__scroll-chevron" aria-hidden="true"></span>
-        </a>
-      </section>
-
-      <section id="about" class="section">
-        <header class="section__header">
-          <p class="section__eyebrow">#about</p>
-          <h2 class="section__title" data-i18n="about.title">Giới thiệu</h2>
-        </header>
-        <div class="about-grid">
-          <article class="glass about-card">
-            <h3 data-i18n="about.langTitle">Ngoại Ngữ</h3>
-            <p data-i18n-html="about.langBody">
-              <strong>Tiếng Anh</strong> — TOEIC 500+;
-            </p>
-          </article>
-          <article class="glass about-card">
-            <h3 data-i18n="about.softTitle">Kỹ năng mềm</h3>
-            <ul class="tag-list">
-              <li>Teamwork</li>
-              <li>Communication</li>
-              <li>Critical Thinking</li>
-              <li>Problem Solving</li>
-              <li>Research</li>
-              <li>Office 365</li>
-              <li>AI Tools</li>
-            </ul>
-          </article>
-          <article class="glass about-card about-card--wide">
-            <h3 data-i18n="about.techTitle">Kỹ năng kỹ thuật</h3>
-            <ul class="tag-list">
-              <li>C# / Java / JavaScript</li>
-              <li>.NET 8–9 · ASP.NET Core MVC &amp; Web API</li>
-              <li>Spring Boot 3 · Spring Data JPA</li>
-              <li>React 18 · Vite · MUI</li>
-              <li>Entity Framework Core</li>
-              <li>PostgreSQL · SQL Server · Azure SQL</li>
-              <li>REST API · JWT · Spring Security · OAuth</li>
-              <li>VNPay · SePay · Cloudinary · SignalR</li>
-              <li>MailKit · Azure Blob · Swagger</li>
-              <li>Git / GitLab · Docker</li>
-            </ul>
-          </article>
-          <article class="glass about-card about-card--wide">
-            <h3 data-i18n="about.goalTitle">Định hướng</h3>
-            <p data-i18n="about.goalP1">
-              Thiết kế API rõ ràng, bảo mật, tính nhất quán dữ liệu và code dễ
-              bảo trì — từ sàn giao dịch, thương mại điện tử đến mạng xã hội học
-              tập.
-            </p>
-            <p data-i18n-html="about.goalP2">
-              Hướng tới vị trí <strong>Backend / Full-stack Developer</strong>
-              sau tốt nghiệp: chuyên sâu REST API, kiến trúc nhiều lớp, JWT và
-              thiết kế cơ sở dữ liệu (Code First &amp; Database First). Luôn học
-              thêm qua nghiên cứu, làm việc nhóm và tận dụng AI để tăng năng
-              suất, đồng thời nâng dần tiếng Anh để làm việc với tài liệu và đội
-              ngũ quốc tế.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="experience" class="section">
-        <header class="section__header">
-          <p class="section__eyebrow">#experience</p>
-          <h2 class="section__title" data-i18n="exp.title">Kinh nghiệm</h2>
-        </header>
-        <article class="timeline-card glass">
-          <div class="timeline-card__meta">
-            <span class="label-caps" data-i18n="exp.meta1"
-              >INTERN FPT Software</span
-            >
-            <time datetime="2024" data-i18n="exp.meta2">Thực tập 2024</time>
-          </div>
-          <h3 data-i18n="exp.projectTitle">Dự án G1Mart</h3>
-          <p class="timeline-card__role label-caps" data-i18n="exp.role">
-            Backend Team Lead
-          </p>
-          <p data-i18n-html="exp.summary">
-            Điều phối nhóm backend, theo dõi milestone và review kỹ thuật cho hệ
-            thống thương mại điện tử <strong>G1Mart</strong>. Xây dựng REST API
-            <strong>Spring Boot 3.3</strong>, Java 17, PostgreSQL, Spring
-            Security, JWT — sản phẩm, biến thể, giỏ hàng, đơn hàng, voucher,
-            kho, nhân viên và phân quyền; tích hợp <strong>VNPay</strong>,
-            <strong>Cloudinary</strong>, Swagger. Rà soát logic pricing,
-            promotion và order processing.
-          </p>
-          <div class="timeline-card__leadership">
-            <p class="label-caps timeline-card__leadership-title">
-              Leadership &amp; Project Management
-            </p>
-
-            <h4 class="timeline-card__duty-heading">
-              <span data-i18n="exp.h4_1">Quản lý &amp; Giám sát Tiến độ</span>
-              <span class="timeline-card__duty-en"
-                >(Project Tracking &amp; Team Coordination)</span
-              >
-            </h4>
-            <ul class="timeline-card__duties">
-              <li data-i18n="exp.li_1_1">
-                Chủ trì điều phối và phân chia hạng mục công việc cho nhóm
-                Backend; thiết lập quy trình theo dõi tiến độ chặt chẽ qua các
-                công cụ quản lý nhằm đảm bảo dự án vận hành đúng lộ trình
-                (milestones).
-              </li>
-              <li data-i18n="exp.li_1_2">
-                Thúc đẩy sự kết nối và giải quyết xung đột thông tin giữa các
-                thành viên, duy trì hiệu suất làm việc tối ưu của toàn đội ngũ.
-              </li>
-            </ul>
-
-            <h4 class="timeline-card__duty-heading">
-              <span data-i18n="exp.h4_2"
-                >Kiểm soát Nghiệp vụ &amp; Đồng bộ Dữ liệu</span
-              >
-              <span class="timeline-card__duty-en"
-                >(Business Logic &amp; Data Consistency)</span
-              >
-            </h4>
-            <ul class="timeline-card__duties">
-              <li data-i18n="exp.li_2_1">
-                Trực tiếp rà soát, chuẩn hóa hệ thống logic phức tạp liên quan
-                đến giá sản phẩm (pricing), các chiến dịch khuyến mãi
-                (promotions), và toàn bộ luồng nghiệp vụ đơn hàng (order
-                processing).
-              </li>
-              <li data-i18n="exp.li_2_2">
-                Đảm bảo tính toàn vẹn dữ liệu (data integrity), ngăn chặn triệt
-                để tình trạng sai lệch thông tin hệ thống, tối ưu hóa trải
-                nghiệm người dùng cuối.
-              </li>
-            </ul>
-
-            <h4 class="timeline-card__duty-heading">
-              <span data-i18n="exp.h4_3"
-                >Báo cáo &amp; Tham vấn Chuyên gia</span
-              >
-              <span class="timeline-card__duty-en"
-                >(Stakeholder Communication &amp; Technical Review)</span
-              >
-            </h4>
-            <ul class="timeline-card__duties">
-              <li data-i18n="exp.li_3_1">
-                Duy trì kênh trao đổi thường kỳ với Mentor/Cố vấn chuyên môn để
-                định hình chiến lược và phương án kiến trúc triển khai tối ưu.
-              </li>
-              <li data-i18n="exp.li_3_2">
-                Chủ động đề xuất giải pháp trong các buổi code review, nhanh
-                chóng nhận diện và xử lý dứt điểm các điểm nghẽn kỹ thuật
-                (technical bottlenecks) phát sinh trong quá trình vận hành.
-              </li>
-            </ul>
-          </div>
-          <div class="timeline-card__links">
-            <a
-              class="link-arrow"
-              href="https://g1mart.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-i18n="exp.linkDemo"
-            >
-              Live demo</a
-            >
-            <a
-              class="link-arrow"
-              href="https://gitlab.com/myproject31052003/G1Mart"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-i18n="exp.linkRepo"
-            >
-              Mã nguồn GitLab</a
-            >
-          </div>
-        </article>
-      </section>
-
-      <section id="projects" class="section">
-        <header class="section__header">
-          <p class="section__eyebrow">#projects</p>
-          <h2 class="section__title" data-i18n="projects.title">Dự án</h2>
-        </header>
-        <div class="bento">
-          <!-- Dự án 1 — G1Mart -->
-          <article class="project-card glass project-card--featured">
-            <div class="project-card__meta">
-              <span class="project-card__badge"
-                >INTERN FU CT 2024 · Nhóm G1</span
-              >
-              <span class="project-card__role">Backend Team Lead</span>
+            <div class="project-card__mobile-actions">
+              <a class="project-card__mobile-btn" href="https://g1mart.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+              <a class="project-card__mobile-btn" href="https://gitlab.com/myproject31052003/G1Mart" target="_blank" rel="noopener noreferrer">GitLab ↗</a>
             </div>
-            <h3>G1Mart</h3>
-            <p data-i18n-html="projects.g1mart.desc">
-              Nền tảng thương mại điện tử: <strong>storefront</strong> cho khách
-              và <strong>admin/staff</strong> vận hành sản phẩm, kho, đơn,
-              voucher, banner, shipper, hoàn trả, báo cáo. API
-              <strong>Controller → Service → Repository → PostgreSQL</strong>,
-              Spring Security + JWT, COD/VNPay, Cloudinary, dashboard thống kê.
-              Monorepo: React 18 + Vite + MUI, Spring Boot 3.3 + Spring Data
-              JPA, PostgreSQL, Swagger.
-            </p>
-            <div class="project-card__tags">
-              <span>React</span>
-              <span>Vite</span>
-              <span>MUI</span>
-              <span>Java 17</span>
-              <span>Spring Boot 3.3</span>
-              <span>Spring Data JPA</span>
-              <span>PostgreSQL</span>
-              <span>Cloudinary</span>
-              <span>VNPay</span>
-              <span>JWT</span>
-              <span>Swagger</span>
-            </div>
-            <div class="project-card__actions">
-              <a
-                class="btn btn--sm btn--primary"
-                href="https://g1mart.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-i18n="projects.liveDemo"
-                >Live demo</a
-              >
-              <a
-                class="btn btn--sm"
-                href="https://gitlab.com/myproject31052003/G1Mart"
-                target="_blank"
-                rel="noopener noreferrer"
-                >GitLab</a
-              >
-            </div>
-            <!-- Tài khoản demo G1Mart — bỏ comment để hiện lại
-            <div class="demo-credentials-grid">
-              <div class="demo-credentials" role="note">
-                <p class="label-caps demo-credentials__label">
-                  Demo account (admin)
-                </p>
-                <dl class="demo-credentials__list">
-                  <div class="demo-credentials__row">
-                    <dt>Username</dt>
-                    <dd><code>admin</code></dd>
-                  </div>
-                  <div class="demo-credentials__row">
-                    <dt>Password</dt>
-                    <dd><code>123</code></dd>
-                  </div>
-                </dl>
+          </article>
+
+          <!-- Project 2 — AccountMarket -->
+          <article class="project-card">
+            <div class="project-card__frame">
+              <div class="project-card__media">
+                <img
+                  src="assets/projects/accountmarket.jpg"
+                  alt="AccountMarket Gaming Platform"
+                  class="project-card__img"
+                  loading="lazy"
+                />
               </div>
-              <div class="demo-credentials" role="note">
-                <p class="label-caps demo-credentials__label">
-                  Demo account (user)
-                </p>
-                <dl class="demo-credentials__list">
-                  <div class="demo-credentials__row">
-                    <dt>Username</dt>
-                    <dd><code>0912345678</code></dd>
-                  </div>
-                  <div class="demo-credentials__row">
-                    <dt>Password</dt>
-                    <dd><code>123456Aa</code></dd>
-                  </div>
-                </dl>
+              <div class="project-card__overlay">
+                <a
+                  class="project-card__action-btn project-card__action-btn--primary"
+                  href="https://salegameaccount-aqlq.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="projects.liveDemo"
+                >
+                  <span>Live demo</span>
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
+                <a
+                  class="project-card__action-btn"
+                  href="https://gitlab.com/myproject31052003/salegameaccount"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>GitLab</span>
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
               </div>
             </div>
-            -->
-          </article>
-
-          <!-- Dự án 2 — AccountMarket -->
-          <article class="project-card glass project-card--featured">
-            <div class="project-card__meta">
-              <span class="project-card__badge">e-commerce</span>
-              <span class="project-card__role">Full-stack</span>
-            </div>
-            <h3>AccountMarket</h3>
-            <p data-i18n-html="projects.account.desc">
-              Sàn mua bán tài khoản game: đăng nhập/đăng ký, cửa hàng, ví nội
-              bộ, lịch sử mua, trang quản trị. Kiến trúc
-              <strong>Web → Business → DataAccess → Models</strong>; Razor dùng
-              <strong>DTO</strong>. Luồng mua ví (transaction DB), nạp tiền qua
-              <strong>SePay Webhook</strong> (idempotent), Cloudinary, MailKit
-              gửi email; GitLab CI (SAST). CSDL <strong>Azure SQL</strong>.
-            </p>
-            <div class="project-card__tags">
-              <span>.NET 9</span>
-              <span>ASP.NET Core MVC</span>
-              <span>EF Core</span>
-              <span>Code First</span>
-              <span>SePay</span>
-              <span>MailKit</span>
-              <span>Cloudinary</span>
-              <span>JWT</span>
-              <span>Azure SQL</span>
-            </div>
-            <div class="project-card__actions">
-              <a
-                class="btn btn--sm btn--primary"
-                href="https://salegameaccount-aqlq.onrender.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-i18n="projects.liveDemo"
-                >Live demo</a
-              >
-              <a
-                class="btn btn--sm"
-                href="https://gitlab.com/myproject31052003/salegameaccount"
-                target="_blank"
-                rel="noopener noreferrer"
-                >GitLab</a
-              >
-            </div>
-            <!-- Tài khoản demo AccountMarket — bỏ comment để hiện lại
-            <div class="demo-credentials-grid">
-              <div class="demo-credentials" role="note">
-                <p class="label-caps demo-credentials__label">
-                  Demo account (admin)
-                </p>
-                <dl class="demo-credentials__list">
-                  <div class="demo-credentials__row">
-                    <dt>Username</dt>
-                    <dd><code>admin</code></dd>
-                  </div>
-                  <div class="demo-credentials__row">
-                    <dt>Password</dt>
-                    <dd><code>123</code></dd>
-                  </div>
-                </dl>
-              </div>
-              <div class="demo-credentials" role="note">
-                <p class="label-caps demo-credentials__label">
-                  Demo account (user)
-                </p>
-                <dl class="demo-credentials__list">
-                  <div class="demo-credentials__row">
-                    <dt>Username</dt>
-                    <dd><code>nguyenvana</code></dd>
-                  </div>
-                  <div class="demo-credentials__row">
-                    <dt>Password</dt>
-                    <dd><code>123456Aa</code></dd>
-                  </div>
-                </dl>
+            <div class="project-card__info">
+              <h3 class="project-card__title">AccountMarket Gaming</h3>
+              <div class="project-card__tags">
+                <span class="project-card__pill">Fintech &amp; Market</span>
+                <span class="project-card__pill">.NET 9 MVC</span>
               </div>
             </div>
-            -->
+            <div class="project-card__mobile-actions">
+              <a class="project-card__mobile-btn" href="https://salegameaccount-aqlq.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+              <a class="project-card__mobile-btn" href="https://gitlab.com/myproject31052003/salegameaccount" target="_blank" rel="noopener noreferrer">GitLab ↗</a>
+            </div>
           </article>
 
-          <!-- Dự án 3 — FUS (chỉ GitLab, không live demo) -->
-          <article class="project-card glass project-card--featured">
-            <div class="project-card__meta">
-              <span class="project-card__badge">Social · Education</span>
-              <span class="project-card__role">Backend Team Lead</span>
+          <!-- Project 3 — FUS -->
+          <article class="project-card">
+            <div class="project-card__frame">
+              <div class="project-card__media">
+                <img
+                  src="assets/projects/fus.jpg"
+                  alt="FUS Social Learning Platform"
+                  class="project-card__img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__overlay">
+                <a
+                  class="project-card__action-btn project-card__action-btn--primary"
+                  href="https://gitlab.com/g38592114/project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>GitLab</span>
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
+              </div>
             </div>
-            <h3>FUS</h3>
-            <p data-i18n-html="projects.fus.desc">
-              Mạng xã hội học tập: bài viết, bình luận, nhóm, tài liệu, sự kiện,
-              tìm thành viên dự án, phản hồi, báo cáo vi phạm. Backend
-              <strong
-                >ClientService → APIService → Services → Repository → SQL
-                Server</strong
-              >; JWT Bearer, Cookie Auth, Google OAuth, Azure Blob, chat/thông
-              báo <strong>SignalR</strong>; admin &amp; dashboard theo vai trò.
-              .NET 8, EF Core Database First, MVC client + REST API.
-            </p>
-            <div class="project-card__tags">
-              <span>.NET 8</span>
-              <span>ASP.NET Core API</span>
-              <span>EF Core</span>
-              <span>Database First</span>
-              <span>SignalR</span>
-              <span>Azure Blob</span>
-              <span>Google OAuth</span>
-              <span>JWT</span>
-              <span>SQL Server</span>
+            <div class="project-card__info">
+              <h3 class="project-card__title">FUS Learning Platform</h3>
+              <div class="project-card__tags">
+                <span class="project-card__pill">EdTech &amp; Social</span>
+                <span class="project-card__pill">SignalR &amp; API</span>
+              </div>
             </div>
-            <div class="project-card__actions">
-              <a
-                class="btn btn--sm"
-                href="https://gitlab.com/g38592114/project"
-                target="_blank"
-                rel="noopener noreferrer"
-                >GitLab</a
-              >
+            <div class="project-card__mobile-actions">
+              <a class="project-card__mobile-btn" href="https://gitlab.com/g38592114/project" target="_blank" rel="noopener noreferrer">GitLab ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 4 — Portfolio Platform -->
+          <article class="project-card">
+            <div class="project-card__frame">
+              <div class="project-card__media">
+                <img
+                  src="assets/projects/portfolio.jpg"
+                  alt="Developer Portfolio Platform"
+                  class="project-card__img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__overlay">
+                <a
+                  class="project-card__action-btn project-card__action-btn--primary"
+                  href="https://github.com/huynhnguyenbao3105"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>GitHub</span>
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-card__info">
+              <h3 class="project-card__title">Portfolio Platform</h3>
+              <div class="project-card__tags">
+                <span class="project-card__pill">Web App</span>
+                <span class="project-card__pill">UI System</span>
+              </div>
+            </div>
+            <div class="project-card__mobile-actions">
+              <a class="project-card__mobile-btn" href="https://github.com/huynhnguyenbao3105" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="contact" class="section section--contact">
-        <div class="contact-wrap glass">
-          <header class="section__header section__header--inline">
-            <p class="section__eyebrow">#contact</p>
-            <h2 class="section__title" data-i18n="contact.title">Liên hệ</h2>
-            <p class="contact-wrap__lead" data-i18n="contact.lead">
-              Sẵn sàng trao đổi về cơ hội thực tập, fresher hoặc dự án phần
-              mềm.
+      <section id="contact" class="contact-section" aria-label="Liên hệ">
+        <div class="contact-banner">
+          <div class="contact-banner__glow" aria-hidden="true"></div>
+          <div class="contact-banner__content">
+            <h2 class="contact-banner__title" data-i18n="contact.title">Let's Make It Happen</h2>
+            <p class="contact-banner__subtitle" data-i18n="contact.lead">
+              always open to new opportunities, collaborations, and creative challenges. Let's work together to bring your ideas to life
             </p>
-          </header>
-          <ul class="contact-list">
-            <li class="contact-list__item">
-              <span class="label-caps" data-i18n="contact.emailLabel"
-                >Email</span
+            <div class="contact-banner__actions">
+              <a
+                class="contact-banner__btn"
+                href="mailto:huynhnguyenbao3105@gmail.com"
+                aria-label="Liên hệ qua email huynhnguyenbao3105@gmail.com"
               >
-              <a href="mailto:huynhnguyenbao3105@gmail.com"
-                >huynhnguyenbao3105@gmail.com</a
-              >
-            </li>
-            <li class="contact-list__item">
-              <span class="label-caps" data-i18n="contact.phoneLabel"
-                >Điện thoại</span
-              >
-              <a href="tel:+84939082419">0939 082 419</a>
-            </li>
-          </ul>
-          <a
-            class="btn btn--primary btn--block"
-            href="mailto:huynhnguyenbao3105@gmail.com"
-            data-i18n="contact.cta"
-            >Gửi email</a
-          >
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 10h12M11 5l5 5-5 5"/>
+                </svg>
+                <span data-i18n="contact.cta">Get In Touch</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p data-i18n-html="footer.copy">
-        &copy; <span id="year"></span> Huỳnh Nguyên Bảo. Portfolio cá nhân.
-      </p>
+      <div class="site-footer__inner">
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <a href="#landing" data-i18n="nav.home">Home</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#projects" data-i18n="nav.projects">Portfolio</a>
+          <a href="#process" data-i18n="nav.blog">Blog</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <p class="site-footer__copy" data-i18n-html="footer.copy">
+          &copy; <span id="year"></span> Huỳnh Nguyên Bảo. All rights reserved.
+        </p>
+      </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- OVCAR-style floating widget: scroll-top + AI bot + chat -->
+    <div class="fab-widget" id="fab-widget" aria-live="polite">
+      <div class="fab-widget__anchor">
+        <div class="fab-widget__tooltip" id="fab-tooltip" hidden>
+          <span data-i18n="fab.tooltip">Thao tác nhanh</span>
+        </div>
+
+        <div class="fab-widget__menu" id="fab-menu" aria-hidden="true">
+          <button
+            type="button"
+            class="fab-widget__action"
+            id="fab-scroll-top"
+            data-fab-action="scroll"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m5 12 7-7 7 7" />
+              <path d="M12 19V5" />
+            </svg>
+            <span class="fab-widget__action-tip" data-i18n="fab.scrollTop"
+              >Lên đầu trang</span
+            >
+          </button>
+          <button
+            type="button"
+            class="fab-widget__action"
+            id="fab-open-bot"
+            data-fab-action="bot"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 8V4H8" />
+              <rect width="16" height="12" x="4" y="8" rx="2" />
+              <path d="M2 14h2" />
+              <path d="M20 14h2" />
+              <path d="M15 13v2" />
+              <path d="M9 13v2" />
+            </svg>
+            <span class="fab-widget__action-tip" data-i18n="fab.ai"
+              >Trợ lý AI</span
+            >
+          </button>
+          <button
+            type="button"
+            class="fab-widget__action"
+            id="fab-open-chat"
+            data-fab-action="chat"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              />
+            </svg>
+            <span class="fab-widget__action-tip" data-i18n="fab.chat"
+              >Nhắn tin</span
+            >
+          </button>
+        </div>
+
+        <div class="fab-widget__panel" id="fab-panel" aria-hidden="true">
+          <div class="fab-panel fab-panel--bot" id="fab-bot-panel" hidden>
+            <header class="fab-panel__header">
+              <div class="fab-panel__avatar" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 8V4H8" />
+                  <rect width="16" height="12" x="4" y="8" rx="2" />
+                  <path d="M2 14h2" />
+                  <path d="M20 14h2" />
+                  <path d="M15 13v2" />
+                  <path d="M9 13v2" />
+                </svg>
+                <span class="fab-panel__online"></span>
+              </div>
+              <div class="fab-panel__titles">
+                <strong data-i18n="fab.botTitle">Trợ lý portfolio</strong>
+              </div>
+              <div class="fab-panel__actions">
+                <button
+                  type="button"
+                  class="fab-panel__icon-btn"
+                  id="fab-bot-reset"
+                  title="Reset"
+                  aria-label="Reset chat"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+                    />
+                    <path d="M3 3v5h5" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="fab-panel__icon-btn"
+                  data-fab-close
+                  aria-label="Close"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </svg>
+                </button>
+              </div>
+            </header>
+            <div class="fab-panel__messages" id="fab-bot-messages"></div>
+            <div class="fab-panel__options" id="fab-bot-options"></div>
+            <form
+              class="fab-panel__compose"
+              id="fab-bot-form"
+              autocomplete="off"
+            >
+              <div class="fab-panel__compose-shell">
+                <input
+                  type="text"
+                  id="fab-bot-input"
+                  data-i18n-placeholder="fab.botPlaceholder"
+                  placeholder="Hỏi về kỹ năng, dự án…"
+                />
+                <button type="submit" class="fab-panel__send" aria-label="Send">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="17"
+                    height="17"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m22 2-7 20-4-9-9-4Z" />
+                    <path d="M22 2 11 13" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="fab-panel fab-panel--chat" id="fab-chat-panel" hidden>
+            <header class="fab-panel__header fab-panel__header--grab">
+              <div class="fab-panel__titles">
+                <strong data-i18n="fab.chatTitle">Messages</strong>
+              </div>
+              <button
+                type="button"
+                class="fab-panel__icon-btn"
+                data-fab-close
+                aria-label="Close"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
+            </header>
+            <div class="fab-panel__list" id="fab-chat-list">
+              <div class="fab-panel__empty">
+                <p data-i18n="fab.chatEmpty">Chưa có tin nhắn</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="fab-widget__fab"
+          id="fab-toggle"
+          aria-label="Toggle widget"
+          aria-expanded="false"
+        >
+          <svg
+            class="fab-widget__fab-icon"
+            viewBox="0 0 24 24"
+            width="28"
+            height="28"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="js/main.js?v=20260929-v10"></script>
+    <script src="js/widgets.js"></script>
+    <script src="js/mascot.js"></script>
   </body>
 </html>
