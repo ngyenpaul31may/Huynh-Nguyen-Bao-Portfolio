@@ -2191,10 +2191,10 @@ main {
 }
 
 
-/* #contact — Full-bleed Hero CTA Banner (Matching reference design) */
+/* #contact — Full-bleed Hero CTA Banner synchronized with page background */
 .contact-section {
   width: 100%;
-  background: #ffffff;
+  background: var(--color-page);
   margin: 0;
   padding: 0;
   position: relative;
@@ -2206,20 +2206,17 @@ main {
   margin: 0 auto;
   padding: clamp(90px, 12vw, 150px) clamp(24px, 4vw, 48px) clamp(56px, 7vw, 90px);
   text-align: center;
-  background: #ffffff;
+  background: var(--color-page);
   overflow: hidden;
 }
 
-/* Luminous radiant lime-green top glow — full width across the top */
+/* Soft silver-white radial glow blending seamlessly into #e6e6ea */
 .contact-banner__glow {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
+  inset: 0;
   background:
-    radial-gradient(ellipse 110% 75% at 50% -12%, rgba(163, 230, 53, 0.88) 0%, rgba(190, 242, 100, 0.55) 28%, rgba(217, 249, 157, 0.28) 52%, rgba(255, 255, 255, 0) 78%),
-    linear-gradient(180deg, rgba(163, 230, 53, 0.24) 0%, rgba(255, 255, 255, 0) 45%);
+    radial-gradient(ellipse 80% 60% at 50% 48%, rgba(255, 255, 255, 0.82) 0%, rgba(248, 248, 250, 0.48) 40%, rgba(230, 230, 234, 0) 76%),
+    linear-gradient(180deg, rgba(230, 230, 234, 1) 0%, rgba(255, 255, 255, 0.42) 50%, rgba(230, 230, 234, 1) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -2294,13 +2291,13 @@ main {
   transform: translateX(3px);
 }
 
-/* .site-footer — Clean minimal horizontal footer matching reference */
+/* .site-footer — Clean minimal horizontal footer matching page theme */
 .site-footer {
   width: 100%;
-  background: #ffffff;
+  background: var(--color-page);
   margin: 0;
-  padding: 0 0 clamp(44px, 5.5vw, 72px);
-  border-top: none;
+  padding: 28px 0 clamp(44px, 5.5vw, 72px);
+  border-top: 1px solid var(--glass-border);
 }
 
 .site-footer__inner {
